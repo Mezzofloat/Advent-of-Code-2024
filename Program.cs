@@ -1,4 +1,6 @@
-﻿string listNums =
+﻿List<int> listA = new List<int>();
+List<int> listB = new List<int>();
+string listNums =
 @"66845   37619
 94793   99076
 76946   36179
@@ -999,3 +1001,11 @@
 69966   25582
 31783   85509
 97288   51968";
+
+string[] strs = listNums.Split('\n');
+foreach (string str in strs) {
+    string[] ab = str.Split("   ");
+    listA.Add(int.Parse(ab[0]));
+    listB.Add(int.Parse(ab[1]));
+}
+
