@@ -1,6 +1,4 @@
-﻿List<int> listA = new List<int>();
-List<int> listB = new List<int>();
-string listNums =
+﻿string listNums =
 @"66845   37619
 94793   99076
 76946   36179
@@ -1001,48 +999,3 @@ string listNums =
 69966   25582
 31783   85509
 97288   51968";
-
-string[] strs = listNums.Split('\n');
-foreach (string str in strs) {
-    string[] ab = str.Split("   ");
-    listA.Add(int.Parse(ab[0]));
-    listB.Add(int.Parse(ab[1]));
-}
-
-List<int> listAFinal = new List<int>();
-List<int> listBFinal = new List<int>();
-
-foreach (int a in listA) {
-    for (int i = 0; i <= listAFinal.Count; i++) {
-        if (i == listAFinal.Count) {
-            listAFinal.Add(a);
-            break;
-        }
-        if (a < listAFinal[i]) {
-            listAFinal.Insert(i, a);
-            break;
-        }
-    }
-}
-
-foreach (int b in listB) {
-    for (int i = 0; i <= listBFinal.Count; i++) {
-        if (i == listBFinal.Count) {
-            listBFinal.Add(b);
-            break;
-        }
-        if (b < listBFinal[i]) {
-            listBFinal.Insert(i, b);
-            break;
-        }
-    }
-}
-Console.WriteLine(listAFinal.Count + " " + listBFinal.Count);
-int totalDistance = 0;
-
-for (int i = 0; i < 1000; i++) {
-    int dist = Math.Abs(listAFinal[i] - listBFinal[i]);
-    totalDistance += dist;
-}
-
-Console.WriteLine(totalDistance.ToString());
