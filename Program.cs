@@ -1009,3 +1009,16 @@ foreach (string str in strs) {
     listB.Add(int.Parse(ab[1]));
 }
 
+int similarityScore = 0;
+
+foreach (int a in listA) {
+    int count = 0;
+    for(int i = 0; i < listB.Count; i++) {
+        if (listB[i] == a) {
+            count++;
+        }
+    }
+    similarityScore += a * count;
+}
+
+Console.WriteLine(similarityScore);
