@@ -1013,7 +1013,11 @@ List<int> listAFinal = new List<int>();
 List<int> listBFinal = new List<int>();
 
 foreach (int a in listA) {
-    for (int i = 0; i < listAFinal.Count; i++) {
+    for (int i = 0; i <= listAFinal.Count; i++) {
+        if (i == listAFinal.Count) {
+            listAFinal.Add(a);
+            break;
+        }
         if (a < listAFinal[i]) {
             listAFinal.Insert(i, a);
             break;
@@ -1022,10 +1026,23 @@ foreach (int a in listA) {
 }
 
 foreach (int b in listB) {
-    for (int i = 0; i < listBFinal.Count; i++) {
+    for (int i = 0; i <= listBFinal.Count; i++) {
+        if (i == listBFinal.Count) {
+            listBFinal.Add(b);
+            break;
+        }
         if (b < listBFinal[i]) {
             listBFinal.Insert(i, b);
             break;
         }
     }
 }
+Console.WriteLine(listAFinal.Count + " " + listBFinal.Count);
+int totalDistance = 0;
+
+for (int i = 0; i < 1000; i++) {
+    int dist = Math.Abs(listAFinal[i] - listBFinal[i]);
+    totalDistance += dist;
+}
+
+Console.WriteLine(totalDistance.ToString());
