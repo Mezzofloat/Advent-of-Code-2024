@@ -28,6 +28,11 @@ foreach (string report in reports) {
     int unsafeLevels = 0;
     for (int i = 1; i < s.Length - 1; i++) {
         if (!EvaluateLevelSafety(int.Parse(s[i]), int.Parse(s[i+1]), sequenceIsDecreasing)) {
+            unsafeLevels++;
+            i++;
+        }
+
+        if (unsafeLevels > 1) {
             break;
         }
 
